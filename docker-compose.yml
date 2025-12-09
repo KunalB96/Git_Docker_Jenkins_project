@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: atuljkamble/basic-webapp:latest
+    image: kunalb96/basic-webapp:latest
     container_name: basic-webapp
     ports:
       - "3000:3000"

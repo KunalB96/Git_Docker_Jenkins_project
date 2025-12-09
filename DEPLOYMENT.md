@@ -3,7 +3,7 @@
 ## ✅ Current Status
 
 - **Git Repository**: Initialized and committed
-- **Docker Image**: Built successfully (`atuljkamble/basic-webapp:latest`)
+- **Docker Image**: Built successfully (`kunalb96/basic-webapp:latest`)
 - **Container**: Running on port 3000
 - **API Tested**: ✅ Working (`http://localhost:3000/api/hello`)
 
@@ -19,10 +19,10 @@ npm start
 ### Docker Commands
 ```bash
 # Build image
-docker build -t atuljkamble/basic-webapp:latest .
+docker build -t kunalb96/basic-webapp:latest .
 
 # Run container
-docker run -d -p 3000:3000 --name basic-webapp atuljkamble/basic-webapp:latest
+docker run -d -p 3000:3000 --name basic-webapp kunalb96/basic-webapp:latest
 
 # View logs
 docker logs basic-webapp
@@ -61,11 +61,11 @@ git push -u origin main
 docker login
 
 # Tag image (if needed)
-docker tag atuljkamble/basic-webapp:latest atuljkamble/basic-webapp:v1.0
+docker tag kunalb96/basic-webapp:latest kunalb96/basic-webapp:v1.0
 
 # Push to Docker Hub
-docker push atuljkamble/basic-webapp:latest
-docker push atuljkamble/basic-webapp:v1.0
+docker push kunalb96/basic-webapp:latest
+docker push kunalb96/basic-webapp:v1.0
 ```
 
 ## 🔧 Jenkins Setup
@@ -84,7 +84,7 @@ docker push atuljkamble/basic-webapp:v1.0
    Manage Jenkins → Credentials → System → Global credentials
    - Kind: Username with password
    - ID: dockerhub-credentials
-   - Username: atuljkamble
+   - Username: kunalb96
    - Password: <your-docker-hub-token>
    ```
 
@@ -94,7 +94,7 @@ docker push atuljkamble/basic-webapp:v1.0
    - Name: basic-webapp-pipeline
    - Pipeline script from SCM
    - SCM: Git
-   - Repository URL: https://github.com/atulkamble/git-docker-jenkins-project.git
+   - Repository URL: https://github.com/KunalB96/Git_Docker_Jenkins_project.git
    - Branch: */main
    - Script Path: Jenkinsfile
    ```
@@ -136,7 +136,7 @@ Checkout → Build → Test → Push to Docker Hub → Deploy → Health Check
 3. **Push Docker image**:
    ```bash
    docker login
-   docker push atuljkamble/basic-webapp:latest
+   docker push kunalb96/basic-webapp:latest
    ```
 
 4. **Setup Jenkins**:
@@ -205,5 +205,4 @@ curl http://localhost:3000/api/hello
 
 ---
 
-**Repository**: https://github.com/atulkamble/git-docker-jenkins-project  
-**Docker Hub**: https://hub.docker.com/r/atuljkamble/basic-webapp
+

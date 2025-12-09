@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Basic Webapp
 
 A minimal Express server with static frontend, Docker support, and Jenkins CI/CD pipeline.
@@ -134,3 +135,6 @@ npm run dev  # Uses nodemon for auto-reload
 ## License
 
 MIT
+=======
+# Git_Docker_Jenkins_project
+>>>>>>> 39df875663931ac2de755668e3af63fe00624438

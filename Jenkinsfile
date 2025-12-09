@@ -41,17 +41,17 @@ pipeline {
             }
         }
         
-     stage('Push to Docker Hub') {
+    stage('Push to Docker Hub') {
     steps {
-        echo "Pushing Docker image to Docker Hub..."
+        echo "DEBUG: Testing docker login..."
         script {
-            withDockerRegistry([credentialsId: 'docker_credentials', url: 'https://index.docker.io/v1/']) {
-                sh "docker push kunalb96/basic-webapp:${IMAGE_TAG}"
-                sh "docker push kunalb96/basic-webapp:latest"
-            }
+            sh "docker --version"
+            sh "docker info"
+            sh "docker login --username kunalb96 --password-stdin <<< \"${DOCKER_HUB_TOKEN}\""
         }
     }
 }
+
 
         stage('Deploy') {
             steps {

@@ -3,7 +3,7 @@ pipeline {
     
     environment {
         DOCKER_HUB_REPO = 'kunalb96/basic-webapp'
-        DOCKER_HUB_CREDENTIALS = 'dockerhub-credentials' // Jenkins credential ID
+        DOCKER_HUB_CREDENTIALS = 'dockerhub-credentials'       // Must match Jenkins credential ID
         GIT_REPO = 'https://github.com/KunalB96/Git_Docker_Jenkins_project.git'
         IMAGE_TAG = "${BUILD_NUMBER}"
     }
@@ -30,7 +30,6 @@ pipeline {
             steps {
                 echo 'Running tests...'
                 script {
-                    // Run container and test API endpoint
                     sh """
                         docker run -d --name test-container -p 3001:3000 ${DOCKER_HUB_REPO}:${IMAGE_TAG}
                         sleep 5
@@ -42,19 +41,6 @@ pipeline {
             }
         }
         
-
-        stage('Push to Docker Hub') {
-                  echo "Pushing Docker image to Docker Hub..."
-                    script {
-                       withDockerRegistry([credentialsId: 'docker_credentials', url: 'https://index.docker.io/v1/']) {
-                         sh "docker push kunalb96/basic-webapp:2"
-                         sh "docker push kunalb96/basic-webapp:latest"
-        }
-    }
-}
-
-
-        /*
         stage('Push to Docker Hub') {
             steps {
                 echo 'Pushing Docker image to Docker Hub...'
@@ -66,7 +52,7 @@ pipeline {
                 }
             }
         }
-          */
+
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'

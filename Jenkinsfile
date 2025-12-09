@@ -3,7 +3,7 @@ pipeline {
     
     environment {
         DOCKER_HUB_REPO = 'kunalb96/basic-webapp'
-        DOCKER_HUB_CREDENTIALS = 'dockerhub-credentials'       // Must match Jenkins credential ID
+        DOCKER_HUB_CREDENTIALS = 'docker_credentials'       // Must match Jenkins credential ID
         GIT_REPO = 'https://github.com/KunalB96/Git_Docker_Jenkins_project.git'
         IMAGE_TAG = "${BUILD_NUMBER}"
     }

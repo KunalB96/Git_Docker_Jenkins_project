@@ -41,17 +41,17 @@ pipeline {
             }
         }
         
-        stage('Push to Docker Hub') {
-            steps {
-                echo 'Pushing Docker image to Docker Hub...'
-                script {
-                    docker.withRegistry('https://index.docker.io/v1/', "${DOCKER_HUB_CREDENTIALS}") {
-                        dockerImage.push("${IMAGE_TAG}")
-                        dockerImage.push("latest")
-                    }
-                }
+     stage('Push to Docker Hub') {
+    steps {
+        echo "Pushing Docker image to Docker Hub..."
+        script {
+            withDockerRegistry([credentialsId: 'docker_credentials', url: 'https://index.docker.io/v1/']) {
+                sh "docker push kunalb96/basic-webapp:${IMAGE_TAG}"
+                sh "docker push kunalb96/basic-webapp:latest"
             }
         }
+    }
+}
 
         stage('Deploy') {
             steps {

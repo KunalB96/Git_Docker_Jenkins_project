@@ -52,6 +52,60 @@ cd git-docker-jenkins-project
 ### Prerequisites
 
 1. **Jenkins Server** with Docker installed
+````markdown
+# Basic Webapp
+
+A minimal Express server with static frontend, Docker support, and Jenkins CI/CD pipeline.
+
+## Quick Start (Local)
+
+```bash
+npm install
+npm start
+```
+
+Open http://localhost:3000
+
+## Docker Quick Start
+
+### Build and Run with Docker
+
+```bash
+docker build -t kunalb96/basic-webapp:latest .
+docker run -d -p 3000:3000 --name basic-webapp kunalb96/basic-webapp:latest
+```
+
+### Using Docker Compose
+
+```bash
+docker-compose up -d
+docker-compose logs -f
+docker-compose down
+```
+
+## Git Setup
+
+### Initialize and Push to GitHub
+
+```bash
+git add .
+git commit -m "Initial commit: Basic webapp with Docker and Jenkins"
+git remote add origin https://github.com/KunalB96/Git_Docker_Jenkins_project.git
+git push -u origin main
+```
+
+### Clone Repository
+
+```bash
+git clone https://github.com/KunalB96/Git_Docker_Jenkins_project.git
+cd Git_Docker_Jenkins_project
+```
+
+## Jenkins Pipeline Setup
+
+### Prerequisites
+
+1. **Jenkins Server** with Docker installed
 2. **Jenkins Plugins**:
    - Docker Pipeline
    - Git Plugin
@@ -61,15 +115,15 @@ cd git-docker-jenkins-project
 
 1. **Add Docker Hub Credentials**:
    - Go to: `Jenkins → Manage Jenkins → Credentials`
-   - Add new credentials with ID: `dockerhub-credentials`
-   - Username: `atuljkamble`
+   - Add new credentials with ID: `docker_credentials`
+   - Username: `kunalb96`
    - Password: Your Docker Hub access token
 
 2. **Create Pipeline Job**:
    - New Item → Pipeline
    - Configure → Pipeline Definition: `Pipeline script from SCM`
    - SCM: Git
-   - Repository URL: `https://github.com/atulkamble/git-docker-jenkins-project.git`
+   - Repository URL: `https://github.com/KunalB96/Git_Docker_Jenkins_project.git`
    - Branch: `main`
    - Script Path: `Jenkinsfile`
 
@@ -82,7 +136,7 @@ cd git-docker-jenkins-project
 - **Checkout**: Clone code from GitHub
 - **Build**: Build Docker image with tag
 - **Test**: Run container and test API endpoint
-- **Push to Docker Hub**: Push image to `atuljkamble/basic-webapp`
+- **Push to Docker Hub**: Push image to `kunalb96/basic-webapp`
 - **Deploy**: Stop old container and deploy new one
 - **Health Check**: Verify application is running
 
@@ -114,16 +168,16 @@ cd git-docker-jenkins-project
 
 ## Docker Hub
 
-Image: [atuljkamble/basic-webapp](https://hub.docker.com/r/atuljkamble/basic-webapp)
+Image: [kunalb96/basic-webapp](https://hub.docker.com/r/kunalb96/basic-webapp)
 
 ```bash
-docker pull atuljkamble/basic-webapp:latest
-docker run -p 3000:3000 atuljkamble/basic-webapp:latest
+docker pull kunalb96/basic-webapp:latest
+docker run -p 3000:3000 kunalb96/basic-webapp:latest
 ```
 
 ## GitHub Repository
 
-Repo: [atulkamble/git-docker-jenkins-project](https://github.com/atulkamble/git-docker-jenkins-project)
+Repo: [KunalB96/Git_Docker_Jenkins_project](https://github.com/KunalB96/Git_Docker_Jenkins_project)
 
 ## Development
 
@@ -135,6 +189,5 @@ npm run dev  # Uses nodemon for auto-reload
 ## License
 
 MIT
-=======
-# Git_Docker_Jenkins_project
->>>>>>> 39df875663931ac2de755668e3af63fe00624438
+
+````
